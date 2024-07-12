@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://dd3uwlyjuu6dy"]
+
+[ext_resource type="Script" path="res://Scripts/Pillar.gd" id="1_c87xy"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_il0j4"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pt7df"]
+transparency = 1
+albedo_color = Color(0.776471, 0.866667, 1, 0.360784)
+emission_enabled = true
+emission = Color(0.459353, 0.491624, 0.499355, 1)
+rim_enabled = true
+rim = 0.08
+ao_enabled = true
+backlight_enabled = true
+backlight = Color(0.463021, 0.443848, 0.43558, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wgqkh"]
+
+[node name="Pillar" type="RigidBody3D"]
+script = ExtResource("1_c87xy")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_il0j4")
+surface_material_override/0 = SubResource("StandardMaterial3D_pt7df")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_wgqkh")

@@ -1,0 +1,103 @@
+[gd_scene load_steps=12 format=3 uid="uid://d3glphm8thab4"]
+
+[ext_resource type="Script" path="res://Scripts/MainController.gd" id="1_g157d"]
+[ext_resource type="Script" path="res://Scripts/MIDIInput.gd" id="1_j065e"]
+[ext_resource type="Script" path="res://Scripts/KeyboardInput.gd" id="3_33xja"]
+[ext_resource type="Script" path="res://Scripts/PillarRaiser.gd" id="4_i3hjx"]
+[ext_resource type="PackedScene" uid="uid://dd3uwlyjuu6dy" path="res://Pillar.tscn" id="5_2be1d"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_8l7gi"]
+sky_top_color = Color(0.133333, 0.137255, 0.141176, 1)
+sky_horizon_color = Color(0.133333, 0.137255, 0.141176, 1)
+sky_curve = 0.3
+ground_bottom_color = Color(0, 0, 0, 1)
+ground_horizon_color = Color(0.131813, 0.136038, 0.142708, 1)
+ground_curve = 0.0303142
+sun_curve = 0.113679
+
+[sub_resource type="Sky" id="Sky_pyfbc"]
+sky_material = SubResource("ProceduralSkyMaterial_8l7gi")
+
+[sub_resource type="Environment" id="Environment_w7syq"]
+background_mode = 2
+sky = SubResource("Sky_pyfbc")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_kwn72"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uqahy"]
+albedo_color = Color(0.00820202, 0.00820202, 0.00820202, 1)
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_yob2x"]
+
+[node name="Node3D" type="Node3D"]
+script = ExtResource("1_g157d")
+
+[node name="MIDIInput" type="Node" parent="."]
+script = ExtResource("1_j065e")
+
+[node name="KeyboardInput" type="Node" parent="."]
+script = ExtResource("3_33xja")
+
+[node name="PillarRaiser" type="Node" parent="."]
+script = ExtResource("4_i3hjx")
+
+[node name="Pillars" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.001, 0.899251, 0)
+
+[node name="Pillar1" parent="Pillars" instance=ExtResource("5_2be1d")]
+
+[node name="Pillar2" parent="Pillars" instance=ExtResource("5_2be1d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+
+[node name="Pillar3" parent="Pillars" instance=ExtResource("5_2be1d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
+
+[node name="Pillar4" parent="Pillars" instance=ExtResource("5_2be1d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 0)
+
+[node name="Pillar5" parent="Pillars" instance=ExtResource("5_2be1d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0)
+
+[node name="Pillar6" parent="Pillars" instance=ExtResource("5_2be1d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 0)
+
+[node name="Pillar7" parent="Pillars" instance=ExtResource("5_2be1d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 0)
+
+[node name="Pillar8" parent="Pillars" instance=ExtResource("5_2be1d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 0)
+
+[node name="Pillar9" parent="Pillars" instance=ExtResource("5_2be1d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 0)
+
+[node name="Pillar10" parent="Pillars" instance=ExtResource("5_2be1d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 0)
+
+[node name="Pillar11" parent="Pillars" instance=ExtResource("5_2be1d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 0)
+
+[node name="Pillar12" parent="Pillars" instance=ExtResource("5_2be1d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0, 0)
+
+[node name="Pillar13" parent="Pillars" instance=ExtResource("5_2be1d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 0)
+
+[node name="Pillar14" parent="Pillars" instance=ExtResource("5_2be1d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 0, 0)
+
+[node name="Pillar15" parent="Pillars" instance=ExtResource("5_2be1d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, 0)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.565, 5.354)
+environment = SubResource("Environment_w7syq")
+
+[node name="Floor" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
+transform = Transform3D(10.75, 0, 0, 0, 10.75, 0, 0, 0, 10.75, 0, 0, 0)
+mesh = SubResource("PlaneMesh_kwn72")
+surface_material_override/0 = SubResource("StandardMaterial3D_uqahy")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
+shape = SubResource("WorldBoundaryShape3D_yob2x")
